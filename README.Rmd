@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+### foofactors
+
+#### Reorder
+
+Reorder is a function to change the order of the levels in a factor variable. 
+
+### Installation
+
+NOTE : ADD YOUR GITHUB REPO
+```{r installation, eval = FALSE}
+source("C:/Users/Boyi/Desktop/UBC/545A & 547M/stat545-boyi_hu/hu_boyi/Homework09/foofactors/R/foofactors-package.r")
+```
+  
+### Quick demo
+
+#### Factors
+Binding two factors via `fbind()`:
+
+```{r}
+a <- factor(c("character", "hits", "your", "eyeballs"))
+b <- factor(c("but", "integer", "where it", "counts"))
+```
+
+Simply catenating two factors leads to a result that most don't expect.
+
+```{r}
+c(a, b)
+```
+
+The `fbind()` function paste two factors together and returns one factor.
+
+```{r}
+fbind(a, b)
+```
+
+
+#### reorder
+
+The `reorder` function returns the "scores" attribute which is the result of the function applied to the values of the second variable.
+
+```{r}
+InsectSprays
+a <- InsectSprays$spray
+b <- InsectSprays$count
+reorder(a, b, mean)
+```
+
+The output of the function has the entries in the atomic vector in the same order as given in the input but the levels are sorted in descending order according to the value of scores.
+
+```{r}
+attributes(reorder(a, b, mean))$scores
+levels(a)
+```
+
+#### Previous reflections
+
+From this homework, I learn the procedure of writing a package. I learned how to use package "devtools" to create a R package. I met some problems in this homework. I tried to figure them out but I still have two problems unsolved. The problems are about connect to Github. At the first step, after I generate the new project of foofactors, I open the new project and library the package "devtools". But I can not use the function use_git(). As long as I run use_git(), I will got the error "Error in loadNamespace(name) : there is no package called git2r?". I have stored my PAT as an environment variable named GITHUB_PAT in ~/.Renviron in right way. I can library my package "foofactors" in my computer but I can not install it from Github. I have upload the package into my repositary.
+
+#### Updated reflections
+
+I asked for help from one classmate and then I figured out my problem. On windows system, I need to use R with version 3.3.2 to library package "devtools". When I did it in the first time, I use the version 3.3.1 and I always the warning. In version 3.3.1, I can not use the function use_git(). However, in version 3.3.2, the function use_git() works normally.

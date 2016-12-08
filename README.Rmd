@@ -32,7 +32,7 @@ Reorder is a function to change the order of the levels in a factor variable.
 
 NOTE : ADD YOUR GITHUB REPO
 ```{r installation, eval = FALSE}
-source("C:/Users/Boyi/Desktop/UBC/545A & 547M/stat545-boyi_hu/hu_boyi/Homework09/foofactors/R/foofactors-package.r")
+devtools::install_github("ustchby/zoofactors")
 ```
   
 ### Quick demo
